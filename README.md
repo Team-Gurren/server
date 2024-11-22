@@ -88,6 +88,19 @@ Este é um sistema de gestão de alunos e almoços. A API oferece rotas para reg
 
 ---
 
+### 3. Login Aluno
+- **POST auth/login**
+  - **Descrição**: Loga o aluno ao sistema.
+  - **Exemplo**:
+    ```json
+    POST http://localhost:3000/auth/login
+    {
+      "matricula" : "1111",
+      "cpf" : "12345278911"
+    }
+
+    ```
+
 ### Notas Importantes:
 - Todos os endpoints requerem um servidor em execução na URL `http://localhost:3000/`.
 - Os exemplos acima consideram que você está enviando requisições HTTP para a API.
