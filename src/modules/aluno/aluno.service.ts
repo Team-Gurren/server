@@ -8,7 +8,10 @@ import { InjectRepository } from "@nestjs/typeorm";
 
 @Injectable()
 export class AlunoService {
-	constructor(@InjectRepository(Aluno) private readonly alunoRepository: Repository<Aluno>) { }
+	constructor(
+		@InjectRepository(Aluno)
+		private readonly alunoRepository: Repository<Aluno>,
+	) {}
 
 	async cadastrarAluno(aluno: CreateAlunoDto): Promise<Aluno> {
 		const data = this.alunoRepository.create(aluno);
@@ -50,6 +53,13 @@ export class AlunoService {
 	}
 
 	async lerTodoOsAlunos(): Promise<Aluno[]> {
-		return await this.alunoRepository.find()
+		return await this.alunoRepository.find();
+	}
+
+	async esqueciMatricula(cpf: string): Promise<string> {
+		invariant(cpf, "Necessário matricula para buscar o aluno");
+		const data = await this.alunoRepository.findOneBy({ cpf });
+		invariant(data, "Aluno não encontrado");
+		return data.matricula;
 	}
 }

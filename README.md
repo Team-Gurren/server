@@ -54,6 +54,17 @@ Este é um sistema de gestão de alunos e almoços. A API oferece rotas para reg
   - **Descrição**: Exclui um aluno do sistema.
   - **Exemplo**: `DELETE http://localhost:3000/aluno/1`
 
+
+- **GET /aluno/forgot/:cpf**
+  - **Descrição**: Retorna matricula do aluno.
+  - **Exemplo**:
+    ```json
+    GET http://localhost:3000/forgot/1111111
+    {
+        1010
+    }
+    ```
+
 ---
 
 ### 2. **Rotas de Almoços**

@@ -12,9 +12,7 @@ async function bootstrap() {
 		}),
 	);
 
-	const config = new DocumentBuilder()
-		.setTitle("QRFood")
-		.build();
+	const config = new DocumentBuilder().setTitle("QRFood").build();
 	const documentFactory = () => SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup("api", app, documentFactory);
 
